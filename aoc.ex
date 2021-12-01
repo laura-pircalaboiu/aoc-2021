@@ -46,3 +46,4 @@ defmodule Mix.Tasks.Aoc do
     end
   end
 end
+
