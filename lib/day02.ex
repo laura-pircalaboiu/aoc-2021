@@ -5,8 +5,6 @@ defmodule Aoc2021.Day02 do
   end
 
   def part1(file \\ "input/day02.txt") do
-    x = 0;
-    y = 0;
     parse(file)
     |> Enum.chunk_every(2)
     |> IO.inspect()
