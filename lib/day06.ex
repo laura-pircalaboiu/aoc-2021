@@ -14,17 +14,10 @@ defmodule Aoc2021.Day06 do
         end
     fill_map(m, n+1)
   end
-  
-  def make_better_fish(fish, 9, 0), do: fish
-  def make_better_fish(fish, 0, days_left) do
-    fish = List.replace_at(fish, 6, Enum.fetch!(fish, 6) + Enum.fetch!(fish, 0))
-    fish = List.replace_at(fish, 8, Enum.fetch!(fish, 8) + Enum.fetch!(fish, 0))
-    make_better_fish(fish, 1, days_left)
-  end
-  def make_better_fish(fish, 9, days_left), do: make_better_fish(fish, 0, days_left - 1)
-  def make_better_fish(fish, idx, days_left) do
-    fish = List.replace_at(fish, idx-1, Enum.fetch!(fish, idx))
-    make_better_fish(fish, idx+1, days_left)
+
+  def iterating_fish(arr, 0), do: arr
+  def iterating_fish([a, b, c, d, e, f, g, h, i], t) do
+    iterating_fish([b, c, d, e, f, g, h + a, i, a], t-1)
   end
 
   def make_fish(fish, 0), do: fish
@@ -47,13 +40,12 @@ defmodule Aoc2021.Day06 do
     |> Enum.count()
   end
 
-  def part2(file \\ "input/day06_ex.txt") do
+  def part2(file \\ "input/day06.txt") do
     parse(file)
     |> Enum.frequencies()
     |> fill_map(0)
     |> Map.values()
-    |> make_better_fish(0, 18)
-    |> IO.inspect()
+    |> iterating_fish(256)
     |> Enum.sum()
     end
 end
