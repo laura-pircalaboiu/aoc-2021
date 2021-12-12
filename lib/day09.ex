@@ -17,7 +17,7 @@ defmodule Aoc2021.Day09 do
 
   def part1(file \\ "input/day09.txt") do
     arr = parse(file)
-    arr[0][5]
+    
   end
 
   def part2(file \\ "input/day09.txt") do

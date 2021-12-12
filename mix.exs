@@ -20,7 +20,8 @@ defmodule Aoc.MixProject do
 
   def deps do
     [
-      {:nx, "~> 0.1.0-dev", github: "elixir-nx/nx", branch: "main", sparse: "nx"}
+      {:nx, "~> 0.1.0-dev", github: "elixir-nx/nx", branch: "main", sparse: "nx"},
+      {:libgraph, "~> 0.13.3"}
     ]
   end
 end
